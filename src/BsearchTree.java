@@ -1,7 +1,7 @@
 import java.nio.BufferUnderflowException;
 
 public class BsearchTree<AnyType extends Comparable<? super AnyType>> {
-    //生成二叉树
+    //定义二叉树
     private static class BinaryNode<AnyType> {
         AnyType element;
         BinaryNode<AnyType> left;
@@ -117,7 +117,7 @@ public class BsearchTree<AnyType extends Comparable<? super AnyType>> {
             ;
         return t;
     }
-
+//树的删除
     private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
         if (t == null)
             return t;
@@ -127,7 +127,7 @@ public class BsearchTree<AnyType extends Comparable<? super AnyType>> {
             t.left = remove(x, t.left);
         else if (compare > 0)
             t.right = remove(x, t.right);
-        else if (t.left != null && t.right != null) {
+        else if (t.left != null && t.right != null) {//删除的节点有两个儿子
             t.element = findMin(t.right).element;
             t.right = remove(t.element, t.right);
         } else
